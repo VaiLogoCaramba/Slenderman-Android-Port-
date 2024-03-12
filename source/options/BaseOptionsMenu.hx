@@ -122,7 +122,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		}
 
 		#if android
-		addVirtualPad(LEFT_FULL, C_B_A);
+		addVirtualPad(LEFT_FULL, A_B_C);
 		#end
 
 		changeSelection();
