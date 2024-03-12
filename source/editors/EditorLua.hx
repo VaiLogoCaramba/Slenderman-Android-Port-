@@ -39,13 +39,14 @@ class EditorLua {
 
 	#if LUA_ALLOWED
 	public var lua:State = null;
-	
+	#end
 
 	public function new(script:String) {
 		#if LUA_ALLOWED
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
 		Lua.init_callbacks(lua);
+		#end
 
 		//trace('Lua version: ' + Lua.version());
 		//trace("LuaJIT version: " + Lua.versionJIT());
@@ -180,7 +181,7 @@ class EditorLua {
 			}
 		});
 
-		#if windows
+		#if !android
 
 		Discord.DiscordClient.addLuaCallbacks(lua);
 
