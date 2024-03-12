@@ -44,9 +44,9 @@ import Discord;
 
 
 class FunkinLua {
-	public static var Function_Stop:Dynamic = 1;
-	public static var Function_Continue:Dynamic = 0;
-	public static var Function_StopLua:Dynamic = 2;
+	public static var Function_Stop:Dynamic = #if android "Function_Stop" #else 1 #end;
+	public static var Function_Continue:Dynamic = #if android "Function_Continue" #else 0 #end;
+	public static var Function_StopLua:Dynamic = #if android "Function_Continue" #else 0 #end;
 
 	public var errorHandler:String->Void;
 	#if LUA_ALLOWED
