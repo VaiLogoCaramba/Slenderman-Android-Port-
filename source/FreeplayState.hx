@@ -20,7 +20,7 @@ import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 
 using StringTools;
-#if MODS_ALLOWED
+#if sys
 import sys.FileSystem;
 #end
 
@@ -204,6 +204,11 @@ class FreeplayState extends MusicBeatState
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		add(text);
+
+		#if android
+		addVirtualPad(LEFT_FULL, C_B_A);
+		addPadCamera();
+		#end
 		super.create();
 	}
 
