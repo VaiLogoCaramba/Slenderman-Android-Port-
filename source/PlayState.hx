@@ -854,6 +854,11 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		#if android
+		addAndroidControls();
+		androidControls.visible = true;
+		#end
+
 
 		// STAGE SCRIPTS
 		#if (MODS_ALLOWED && LUA_ALLOWED)
@@ -1165,6 +1170,12 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
+	        var creditTxt = new FlxText(876, 648, 348);
+     creditTxt.text = "PORTED BY\nSINIX SKR"; // como teve coragem
+    creditTxt.setFormat(Paths.font("vcr.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+    creditTxt.scrollFactor.set();
+    add(creditTxt);
+
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -1173,6 +1184,11 @@ class PlayState extends MusicBeatState
 		add(botplayTxt);
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
+		}
+
+                
+	        if(ClientPrefs.downScroll) {
+			creditTxt.y = 148;
 		}
 
 		strumLineNotes.cameras = [camHUD];
@@ -1184,6 +1200,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
+	        creditTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
