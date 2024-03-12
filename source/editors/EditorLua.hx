@@ -39,7 +39,7 @@ class EditorLua {
 
 	#if LUA_ALLOWED
 	public var lua:State = null;
-	#end
+	
 
 	public function new(script:String) {
 		#if LUA_ALLOWED
