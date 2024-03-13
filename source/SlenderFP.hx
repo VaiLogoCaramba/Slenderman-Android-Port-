@@ -83,6 +83,9 @@ class SlenderFP extends MusicBeatState
         changeDiff();
         alpha();
 
+	#if android
+	addVirtualPad(LEFT_FULL, A_B);
+	#end
         super.create();
     }
 
