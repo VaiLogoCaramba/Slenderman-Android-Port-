@@ -21,7 +21,7 @@ import openfl.Assets;
 import openfl.display.BitmapData;
 
 using StringTools;
-#if MODS_ALLOWED
+#if sys
 import sys.FileSystem;
 import sys.io.File;
 #end
@@ -74,7 +74,8 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		Paths.pushGlobalMods();
+		//Paths.pushGlobalMods(); no eres gay
+		
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
 
